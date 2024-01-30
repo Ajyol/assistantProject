@@ -27,7 +27,7 @@ while True:
                 global guy
                 guy = said
 
-                if "Friday" in said:
+                if "Babu" in said:
                     words = said.split()
                     new_string = ' '.join(words[1:])
                     print(new_string)
