@@ -6,15 +6,12 @@ import speech_recognition as sr
 import pyttsx3
 import numpy as np
 
-# from os.path import join, dirname
-# import matplotlib.pyplot as plt
-# ^ matplotlib is great for visualising data and for testing purposes but usually not needed for production
+
 
 load_dotenv()
-openai.api_key = "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"
+openai.api_key = ""
 
 model = 'gpt-3.5-turbo'
-# Set up the speech recognition and text-to-speech engines
 r = sr.Recognizer()
 engine = pyttsx3.init()
 voice = engine.getProperty('voices')[1]
@@ -27,15 +24,14 @@ greetings = [f"whats up master {name}",
              f"Bonjour, Monsieur {name}! Comment ça va? Wait, why the hell am I speaking French?"]
 
 
-# Listen for the wake word "hey pos"
 def listen_for_wake_word(source):
-    print("Listening for 'Hey POS'...")
+    print("Listening for 'Hey pesant'...")
 
     while True:
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
-            if "hey pos" in text.lower():
+            if "hey pesant" in text.lower():
                 print("Wake word detected.")
                 engine.say(np.random.choice(greetings))
                 engine.runAndWait()
